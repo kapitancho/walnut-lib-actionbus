@@ -1,0 +1,21 @@
+{
+    "name": "walnut/lib_actionbus",
+    "authors": [
+        {
+            "name": "Marian Kostadinov",
+            "email": "manchokapitancho@gmail.com"
+        }
+    ],
+	"autoload": {
+		"psr-4": {
+			"Walnut\\Lib\\ActionBus\\": "src/"
+		}
+	},
+	"require": {
+		"psr/container": "^2.0.1"
+	},
+	"require-dev": {
+		"vimeo/psalm": "^4.9.3",
+		"phpunit/phpunit": "^9.5.9"
+	}
+}
