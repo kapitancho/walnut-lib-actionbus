@@ -4,6 +4,9 @@ namespace Walnut\Lib\ActionBus;
 
 use Walnut\Lib\ActionBus\Handler\ActionHandlerNotFound;
 
+/**
+ * @implements ActionHandler<mixed, Action>
+ */
 final class ActionBus implements ActionHandler {
 	/**
 	 * @param ActionHandler $actionHandler
@@ -17,7 +20,6 @@ final class ActionBus implements ActionHandler {
 	}
 
 	/**
-	 * @psalm-suppress ImplementedParamTypeMismatch
 	 * @template RR of mixed
 	 * @param Action<RR> $action
 	 * @return RR
@@ -28,9 +30,13 @@ final class ActionBus implements ActionHandler {
 			return $this->actionHandler->execute($action);
 		}
 		$middleware = $this->middlewares[0];
-		return $middleware->process($action, new self(
+		/**
+		 * @var ActionHandler<RR, Action>
+		 */
+		$actionHandler = new self(
 			$this->actionHandler,
 			array_slice($this->middlewares, 1)
-		));
+		);
+		return $middleware->process($action, $actionHandler);
 	}
 }

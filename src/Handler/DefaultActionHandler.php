@@ -7,6 +7,9 @@ use Walnut\Lib\ActionBus\ActionHandler;
 use Walnut\Lib\ActionBus\Handler\Loader\ActionHandlerLoader;
 use Walnut\Lib\ActionBus\Handler\Mapper\ActionHandlerMapper;
 
+/**
+ * @implements ActionHandler<mixed, Action>
+ */
 final class DefaultActionHandler implements ActionHandler {
 	/**
 	 * @param ActionHandlerMapper $actionHandlerMapper
@@ -30,7 +33,6 @@ final class DefaultActionHandler implements ActionHandler {
 	}
 
 	/**
-	 * @psalm-suppress ImplementedParamTypeMismatch
 	 * @template RR of mixed
 	 * @param Action<RR> $action
 	 * @return RR
