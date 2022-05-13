@@ -16,8 +16,8 @@ final class DefaultActionHandler implements ActionHandler {
 	 * @param ActionHandlerLoader $actionHandlerLoader
 	 */
 	public function __construct(
-		private /*readonly*/ ActionHandlerMapper $actionHandlerMapper,
-		private /*readonly*/ ActionHandlerLoader $actionHandlerLoader
+		private readonly ActionHandlerMapper $actionHandlerMapper,
+		private readonly ActionHandlerLoader $actionHandlerLoader
 	) { }
 
 	/**

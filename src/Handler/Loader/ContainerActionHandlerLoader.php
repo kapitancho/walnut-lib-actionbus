@@ -8,7 +8,7 @@ use Walnut\Lib\ActionBus\Handler\ActionHandlerNotFound;
 
 final class ContainerActionHandlerLoader implements ActionHandlerLoader {
 	public function __construct(
-		private /*readonly*/ ContainerInterface $container
+		private readonly ContainerInterface $container
 	) { }
 
 	/**

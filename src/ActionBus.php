@@ -9,14 +9,18 @@ use Walnut\Lib\ActionBus\Handler\ActionHandlerNotFound;
  */
 final class ActionBus implements ActionHandler {
 	/**
+	 * @var ActionHandlerMiddleware[]
+	 */
+	private readonly array $middlewares;
+	/**
 	 * @param ActionHandler $actionHandler
 	 * @param ActionHandlerMiddleware[] $middlewares
 	 */
 	public function __construct(
-		private /*readonly*/ ActionHandler $actionHandler,
-		private /*readonly*/ array $middlewares = []
+		private readonly ActionHandler $actionHandler,
+		array $middlewares = []
 	) {
-		$this->middlewares = array_values($this->middlewares);
+		$this->middlewares = array_values($middlewares);
 	}
 
 	/**

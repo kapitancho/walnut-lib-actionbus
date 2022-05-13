@@ -8,7 +8,7 @@ use Walnut\Lib\ActionBus\Handler\ActionHandlerNotFound;
 
 final class NameActionHandlerMapper implements ActionHandlerMapper {
 	public function __construct(
-		private /*readonly*/ string $suffix = 'Handler'
+		private readonly string $suffix = 'Handler'
 	) {}
 
 	/**

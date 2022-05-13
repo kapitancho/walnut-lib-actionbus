@@ -12,7 +12,7 @@ final class ArrayActionHandlerMapper implements ActionHandlerMapper {
 	 * @param array<class-string<Action<RR>>, class-string<ActionHandler<RR, Action>>> $actionMapping
 	 */
 	public function __construct(
-		private /*readonly*/ array $actionMapping
+		private readonly array $actionMapping
 	) {}
 
 	public function getActionHandler(Action $action): string {
